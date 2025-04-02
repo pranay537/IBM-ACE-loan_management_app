@@ -66,6 +66,9 @@
           },
           "creditScore" : {
             "type" : "integer"
+          },
+          "customerName" : {
+            "type" : "string"
           }
         }
       }
