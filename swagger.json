@@ -21,7 +21,13 @@
           }
         },
         "produces" : [ "application/json" ],
-        "description" : "Retrieve customerDetails"
+        "description" : "Retrieve customerDetails",
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "query",
+          "type" : "string",
+          "required" : true
+        } ]
       },
       "post" : {
         "operationId" : "postCustomerDetails",
@@ -66,12 +72,13 @@
           },
           "creditScore" : {
             "type" : "integer"
-          },
-          "customerName" : {
-            "type" : "string"
           }
         }
       }
+    },
+    "customerId" : {
+      "type" : "string",
+      "format" : null
     }
   }
 }

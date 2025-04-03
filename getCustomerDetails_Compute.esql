@@ -4,9 +4,12 @@ CREATE COMPUTE MODULE getCustomerDetails_Compute
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
 		 CALL CopyMessageHeaders();
+		 DECLARE custId CHARACTER;
 		 
-		 SET OutputRoot.JSON.Data.customer[] = SELECT  R  FROM  Database.ACENODE_DS.public.loanapplications AS R;
-
+		 SET custId = InputLocalEnvironment.HTTP.Input.QueryString.customerId;
+		
+		SET OutputRoot.JSON.Data.customer[] = (SELECT  R  FROM  Database.ACENODE_DS.public.loanapplications AS R WHERE R.customerid = custId);
+		
 		RETURN TRUE;
 	END;
 
