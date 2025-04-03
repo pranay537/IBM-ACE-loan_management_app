@@ -64,6 +64,9 @@
           "customerID" : {
             "type" : "string"
           },
+		   "customerName" : {
+            "type" : "string"
+          },
           "interestRate" : {
             "type" : "string"
           },
